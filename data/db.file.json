@@ -1,0 +1,8 @@
+{
+    "tasks":[
+        {"id": 1, "value": "Wake up", "isCompleted": false, "isSelected": false}, 
+        {"id": 2, "value": "Eat", "isCompleted": false, "isSelected": false}, 
+        {"id": 3, "value": "Code", "isCompleted": false, "isSelected": false}, 
+        {"id": 4, "value": "Sleep", "isCompleted": false, "isSelected": false}
+    ]
+}

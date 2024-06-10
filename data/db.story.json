@@ -1,0 +1,35 @@
+{
+  "stories":
+    [
+        {
+          "id": 1,
+          "title": "The Lost Key",
+          "author": "Anonymous",
+          "story": "In a small town, a young boy found a mysterious key while playing in his backyard. Little did he know, this key would unlock secrets beyond his imagination."
+        },
+        {
+          "id": 2,
+          "title": "The Magical Forest",
+          "author": "Unknown",
+          "story": "Deep in the heart of the forest lies a magical grove where time stands still. Those who venture into its depths find themselves forever changed by its enchanting beauty."
+        },
+        {
+          "id": 3,
+          "title": "The Uncharted Island",
+          "author": "Exploration Society",
+          "story": "A group of adventurers set sail for an uncharted island rumored to hold treasures untold. But as they journey deeper into the unknown, they realize that some secrets are best left undiscovered."
+        },
+        {
+          "id": 4,
+          "title": "The Haunted Manor",
+          "author": "Ghost Hunter",
+          "story": "On a stormy night, a weary traveler seeks shelter in a deserted manor at the edge of town. Little does he know, he's about to uncover the chilling truth behind its abandoned halls."
+        },
+        {
+          "id": 5,
+          "title": "The Time Traveler's Dilemma",
+          "author": "Time Traveler",
+          "story": "A brilliant scientist invents a machine capable of traveling through time. But when he alters the course of history, he must confront the consequences of his actions before it's too late."
+        }
+  ]      
+}
