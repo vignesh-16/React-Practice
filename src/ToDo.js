@@ -1,10 +1,13 @@
 import { useRef } from 'react';
 import { useState } from 'react';
 import useFetch from './useFetch';
+import usePost from './usePost';
+
 const Todo = () => {
     const taskInput = useRef(null)
     const [taskExists, setTaskExits] = useState(false);
-    const { data : tasks, setData : setTasks, isLoading, serverError } = useFetch('http://localhost:3001/tasks')
+    const { data : tasks, setData : setTasks, isLoading, serverError } = useFetch('http://localhost:3001/tasks');
+    const createStory = usePost('http://localhost:3001/tasks');
  
     const addTask = (e)=> {
         e.preventDefault();
@@ -22,6 +25,7 @@ const Todo = () => {
         })
         if(! taskExists) {
             const newTask = { id: tasks.length + 1, value: newTaskValue, isCompleted: false };
+            createStory(newTask);
             setTasks([...tasks, newTask]);
             taskInput.current.value = '';
         }

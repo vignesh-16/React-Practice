@@ -4,6 +4,7 @@ import Todo from './ToDo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Story from './Story';
 import CreateStory from './CreateStory';
+import NotExists from './NotExists';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
               </Route>
               <Route exact path="/createStory">
                 < CreateStory />
+              </Route>
+              <Route path="*">
+                <NotExists />
               </Route>
             </Switch>
           </div>
