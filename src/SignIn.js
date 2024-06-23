@@ -1,49 +1,41 @@
+import { useState } from "react";
+
 const SignIn = () => {
-    return ( 
-        <>
-            <body>
-                <div class="landing-page-container">
-                    <div class="wrapper">
-                        <div class="login_box log-in-section">
-                        <div class="login-header">
-                            <span>Login</span>
-                        </div>
-                    
-                        <div class="input_box">
-                            <input type="text" id="user" name="userid" class="input-field" required></input>
-                            <label for="user" class="label">Username</label>
-                            <i class="bx bx-user icon"></i>
-                        </div>
-                    
-                        <div class="input_box">
-                            <input type="password" id="pass" name="userpass" class="input-field" required></input>
-                            <label for="pass" class="label">Password</label>
-                            <i class="bx bx-lock-alt icon"></i>
-                        </div>
-                    
-                        <div class="remember-forgot">
-                            <div class="remember-me">
-                                <input type="checkbox" id="remember"></input>
-                                <label for="remember">Remember me</label>
-                            </div>
-                    
-                            <div class="forgot">
-                                <a href="#">Forgot password?</a>
-                            </div>
-                        </div>
-                    
-                        <div class="input_box">
-                            <input type="submit" class="input-submit js-log-in" value="Login"></input>
-                        </div>
-                    
-                        <div class="register js-sign-up">
-                            <span>Don't have an account? <a href="#">Register</a></span>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </body>
-        </>
+    const [userId, setUserId] = useState('username or email id');
+    const [password, setPassword] = useState('Enter password');
+    const [formData, setFormData] = useState({ username: userId, password: password });
+    const url = 'http://127.0.0.1:9000/signin';
+    const userSignIn = async(e)=> {
+        e.preventDefault();
+        setFormData({username : userId, password: password})
+        console.log(`%c so here is the form data: `, 'color: maroon; font-size: 20px', formData);
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formData)
+            });
+            const responseData = await response.json();
+            console.log('%c Server response from localhost:9000: ','color: violet; font-size: 20px', responseData)
+            if(responseData.statusCode === 401) {
+               console.log('%c Server response seems to be good','color: blue; font-size: 20px')
+            }
+            return responseData;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    return (
+        <div>
+            <h2>Welcome !</h2>
+            <form onSubmit={ (e)=> userSignIn(e) }>
+                <label>Sign in:</label>
+                <input type="text" required placeholder={userId} onChange={(e) => setUserId(e.target.value)}/>
+                <input type="password" required placeholder={password} onChange={(e) => setPassword(e.target.value)}/>
+                <button>Sign in</button>
+            </form>
+        </div>
      );
 }
  

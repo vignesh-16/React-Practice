@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Story from './Story';
 import CreateStory from './CreateStory';
 import NotExists from './NotExists';
+import SignIn from './SignIn';
+import SignUP from './SignUp';
 
 function App() {
   return (
@@ -15,6 +17,12 @@ function App() {
           <div className='content'>
             <Switch>
               <Route exact path="/">
+                <SignIn />
+              </Route>
+              <Route exact path="/signup">
+                < SignUP />
+              </Route>
+              <Route exact path="/:user/home">
                 <Home />
               </Route>
               <Route exact path="/todo">
